@@ -180,6 +180,13 @@ export function QRGenerator() {
               >
                 Privacy Policy
               </Link>
+              <span className="px-2">·</span>
+              <Link
+                href="/terms-of-service"
+                className="underline underline-offset-4 hover:text-foreground"
+              >
+                Terms of Service
+              </Link>
             </p>
           </div>
         </div>
