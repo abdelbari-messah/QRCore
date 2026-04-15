@@ -1,10 +1,12 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
+import Link from "next/link";
 import { QRPreview } from "./qr-preview";
 import { QRCustomization } from "./qr-customization";
 import { generateTimestamp } from "@/lib/qr-utils";
 import { Button } from "@/components/ui/button";
+import { AdsSection } from "@/components/ads-section";
 import { Sun, Moon } from "lucide-react";
 import QRCodeStyling from "qr-code-styling";
 
@@ -165,13 +167,19 @@ export function QRGenerator() {
       {/* Footer - Ad space */}
       <footer className="border-t border-border bg-card">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-          {/* Ad space - Add your ads here */}
-          <div className="mb-8 min-h-24 rounded-lg border-2 border-dashed border-muted-foreground/30 bg-muted/20 flex items-center justify-center">
-            <p className="text-sm text-muted-foreground">Ad space available</p>
-          </div>
+          <AdsSection />
           <div className="border-t border-border pt-8">
             <p className="text-center text-sm text-muted-foreground">
-              © 2024 Free QR Code Generator. No data is stored or shared.
+              © 2024 Free QR Code Generator. QR data is not stored on our
+              servers.
+            </p>
+            <p className="mt-2 text-center text-sm text-muted-foreground">
+              <Link
+                href="/privacy-policy"
+                className="underline underline-offset-4 hover:text-foreground"
+              >
+                Privacy Policy
+              </Link>
             </p>
           </div>
         </div>
