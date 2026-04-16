@@ -40,6 +40,44 @@ export function QRGenerator() {
   const previewSize = 300;
   const renderScale = 4;
 
+  const mapDotType = (
+    style:
+      | "square"
+      | "rounded"
+      | "dot"
+      | "classy"
+      | "classy-rounded"
+      | "extra-rounded",
+  ): "square" | "rounded" | "dots" | "classy" | "classy-rounded" | "extra-rounded" => {
+    if (style === "dot") return "dots";
+    return style;
+  };
+
+  const mapMarkerBorderType = (
+    style:
+      | "square"
+      | "rounded"
+      | "circle"
+      | "classy"
+      | "classy-rounded"
+      | "extra-rounded",
+  ): "square" | "dot" | "rounded" | "classy" | "classy-rounded" | "extra-rounded" => {
+    if (style === "circle") return "dot";
+    return style;
+  };
+
+  const mapMarkerCenterType = (
+    style:
+      | "square"
+      | "rounded"
+      | "dot"
+      | "classy"
+      | "classy-rounded"
+      | "extra-rounded",
+  ): "square" | "dot" | "rounded" | "classy" | "classy-rounded" | "extra-rounded" => {
+    return style;
+  };
+
   const handleInstanceReady = useCallback((instance: QRCodeStyling | null) => {
     qrInstanceRef.current = instance;
   }, []);
@@ -50,39 +88,52 @@ export function QRGenerator() {
     try {
       const timestamp = generateTimestamp();
       const filename = `qr-code-${timestamp}`;
-      const qrInstance = qrInstanceRef.current;
 
-      if (!qrInstance) {
-        console.error("QR instance not ready");
-        return;
-      }
-
-      await qrInstance.update({
+      const downloadInstance = new QRCodeStyling({
         width: downloadSize * renderScale,
         height: downloadSize * renderScale,
+        data: value,
+        image: logo,
+        dotsOptions: {
+          color: darkColor,
+          type: mapDotType(dotStyle),
+        },
+        cornersSquareOptions: {
+          color: cornerColor,
+          type: mapMarkerBorderType(markerBorder),
+        },
+        cornersDotOptions: {
+          color: cornerColor,
+          type: mapMarkerCenterType(markerCenter),
+        },
+        backgroundOptions: {
+          color: lightColor,
+        },
+        qrOptions: {
+          errorCorrectionLevel: "M",
+        },
+        imageOptions: {
+          hideBackgroundDots: true,
+          imageSize: Math.max(0.1, Math.min(0.5, logoSize / 100)),
+          saveAsBlob: true,
+          margin: 4,
+        },
+        margin: includeMargin ? 8 : 0,
       });
 
       if (downloadFormat === "png") {
-        await qrInstance.download({
+        await downloadInstance.download({
           name: filename,
           extension: "png",
         });
       } else if (downloadFormat === "svg") {
-        await qrInstance.download({
+        await downloadInstance.download({
           name: filename,
           extension: "svg",
         });
       }
     } catch (error) {
       console.error("Error downloading QR code:", error);
-    } finally {
-      const qrInstance = qrInstanceRef.current;
-      if (qrInstance) {
-        await qrInstance.update({
-          width: previewSize * renderScale,
-          height: previewSize * renderScale,
-        });
-      }
     }
   };
 
