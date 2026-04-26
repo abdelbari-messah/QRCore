@@ -186,28 +186,36 @@ export function QRGenerator() {
                 required. by Abdelbari Messah
               </p>
             </div>
-            <button
-              type="button"
-              onClick={toggleTheme}
-              role="switch"
-              aria-checked={theme === "dark"}
-              aria-label="Toggle theme"
-              className="group ml-3 inline-flex h-9 w-17 shrink-0 items-center rounded-full border border-border/70 bg-muted/70 p-1 shadow-inner transition-colors duration-300 hover:bg-muted dark:border-white/10 dark:bg-white/10 dark:hover:bg-white/15"
-            >
-              <span
-                className={`flex h-7 w-7 items-center justify-center rounded-full transition-all duration-300 ${
-                  theme === "dark"
-                    ? "translate-x-8 bg-[#2f3440] text-[#e8ecf7] shadow-[0_6px_16px_rgba(0,0,0,0.35)]"
-                    : "translate-x-0 bg-[#eceef3] text-[#2c303b] shadow-[0_4px_12px_rgba(15,18,28,0.18)]"
-                }`}
+            <div className="ml-3 flex items-center gap-2">
+              <Link
+                href="/track"
+                className="inline-flex h-9 items-center rounded-full border border-border/70 bg-muted/70 px-4 text-sm font-medium hover:bg-muted"
               >
-                {theme === "dark" ? (
-                  <Moon className="h-3.5 w-3.5 fill-current" />
-                ) : (
-                  <Sun className="h-3.5 w-3.5" />
-                )}
-              </span>
-            </button>
+                Trackable QR
+              </Link>
+              <button
+                type="button"
+                onClick={toggleTheme}
+                role="switch"
+                aria-checked={theme === "dark"}
+                aria-label="Toggle theme"
+                className="group inline-flex h-9 w-17 shrink-0 items-center rounded-full border border-border/70 bg-muted/70 p-1 shadow-inner transition-colors duration-300 hover:bg-muted dark:border-white/10 dark:bg-white/10 dark:hover:bg-white/15"
+              >
+                <span
+                  className={`flex h-7 w-7 items-center justify-center rounded-full transition-all duration-300 ${
+                    theme === "dark"
+                      ? "translate-x-8 bg-[#2f3440] text-[#e8ecf7] shadow-[0_6px_16px_rgba(0,0,0,0.35)]"
+                      : "translate-x-0 bg-[#eceef3] text-[#2c303b] shadow-[0_4px_12px_rgba(15,18,28,0.18)]"
+                  }`}
+                >
+                  {theme === "dark" ? (
+                    <Moon className="h-3.5 w-3.5 fill-current" />
+                  ) : (
+                    <Sun className="h-3.5 w-3.5" />
+                  )}
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </header>

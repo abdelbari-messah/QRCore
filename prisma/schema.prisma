@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model QRCode {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  targetUrl   String
+  label       String?
+  createdAt   DateTime @default(now())
+  manageToken String   @unique
+  scans       Scan[]
+}
+
+model Scan {
+  id        String   @id @default(cuid())
+  qrCodeId  String
+  scannedAt DateTime @default(now())
+  ip        String?
+  country   String?
+  city      String?
+  device    String?
+  os        String?
+  browser   String?
+  userAgent String?
+  qrCode    QRCode   @relation(fields: [qrCodeId], references: [id], onDelete: Cascade)
+
+  @@index([qrCodeId, scannedAt])
+}
