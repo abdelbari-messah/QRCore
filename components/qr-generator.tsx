@@ -179,7 +179,7 @@ export function QRGenerator() {
           <div className="flex items-center justify-between">
             <div className="min-w-0">
               <h1 className="text-balance text-2xl font-bold tracking-tight sm:text-3xl">
-                Free QR Code Generator
+                QRCore
               </h1>
               <p className="mt-1 text-sm text-muted-foreground">
                 Create beautiful, customized QR codes instantly. No signup
@@ -286,8 +286,7 @@ export function QRGenerator() {
           <AdsSection />
           <div className=" pt-3">
             <p className="text-center text-sm text-muted-foreground">
-              © 2024 Free QR Code Generator. QR data is not stored on our
-              servers.
+              © 2024 QRCore. QR data is not stored on our servers.
             </p>
             <p className="mt-1 text-center text-sm text-muted-foreground">
               <Link

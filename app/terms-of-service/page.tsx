@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | Free QR Code Generator",
-  description:
-    "Terms of Service for using Free QR Code Generator and related features.",
+  title: "Terms of Service | QRCore",
+  description: "Terms of Service for using QRCore and related features.",
   alternates: {
     canonical: "https://qr.example.com/terms-of-service",
   },
@@ -30,8 +29,8 @@ export default function TermsOfServicePage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold">1. Service Description</h2>
           <p className="text-muted-foreground">
-            Free QR Code Generator allows users to create and download QR codes
-            in supported formats. Features may change at any time.
+            QRCore allows users to create and download QR codes in supported
+            formats. Features may change at any time.
           </p>
         </section>
 
@@ -87,7 +86,7 @@ export default function TermsOfServicePage() {
 
         <div className="border-t border-border pt-6">
           <Link href="/" className="text-sm underline underline-offset-4">
-            Back to QR Generator
+            Back to QRCore
           </Link>
         </div>
       </div>

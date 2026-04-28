@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Free QR Code Generator",
+  title: "Privacy Policy | QRCore",
   description:
-    "Privacy Policy for Free QR Code Generator, including information about ads, cookies, and analytics.",
+    "Privacy Policy for QRCore, including information about ads, cookies, and analytics.",
   alternates: {
     canonical: "https://qr.example.com/privacy-policy",
   },
@@ -102,7 +102,7 @@ export default function PrivacyPolicyPage() {
 
         <div className="border-t border-border pt-6">
           <Link href="/" className="text-sm underline underline-offset-4">
-            Back to QR Generator
+            Back to QRCore
           </Link>
         </div>
       </div>

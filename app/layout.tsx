@@ -9,7 +9,7 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://qr.example.com"),
-  title: "Free QR Code Generator - Instant Custom QR Creation",
+  title: "QRCore - Instant Custom QR Creation",
   description:
     "Generate customizable QR codes instantly. Adjust colors, size, and add logos. Download as PNG or SVG. No signup required.",
   keywords: [
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   ],
   generator: "v0.app",
   openGraph: {
-    title: "Free QR Code Generator",
+    title: "QRCore",
     description: "Create beautiful, customized QR codes in seconds",
     type: "website",
     images: [
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free QR Code Generator",
+    title: "QRCore",
     description: "Create beautiful, customized QR codes in seconds",
     images: ["/social-og-image.png"],
   },
